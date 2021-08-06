@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="76779812-15b1-4e44-ad29-10e660c7e020">
+	<queryString language="jsonql">
+		<![CDATA[..multi_values.*]]>
+	</queryString>
+	<field name="value" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="[0]"/>
+		<fieldDescription><![CDATA[Value]]></fieldDescription>
+	</field>
+	<field name="itemName" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="^{2}.item_name"/>
+		<fieldDescription><![CDATA[Item name]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="277" y="0" width="278" height="30" uuid="fd4f82c2-abbe-4ef8-8eb8-91afd9db6c46">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0499f481-103c-4059-a47e-03973f8e0a26"/>
+				</reportElement>
+				<text><![CDATA[Value]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="277" height="30" uuid="3a9080a0-6b05-4ec9-a0d3-fec572c39796">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="95758653-15a1-4f2f-818e-073c28049db5"/>
+				</reportElement>
+				<text><![CDATA[Item Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="277" y="0" width="278" height="30" uuid="5241ef9c-fea3-499f-bf4a-58434d8872e2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0499f481-103c-4059-a47e-03973f8e0a26"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="277" height="30" uuid="baaf49be-1cd2-42f0-b8fb-948146979e58">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="95758653-15a1-4f2f-818e-073c28049db5"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{itemName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1e59a5c0-34d5-4a95-8ab9-32a07018cebc">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BDDesarrollo"/>
+	<parameter name="titulo" class="java.lang.String">
+		<parameterDescription><![CDATA[Titulo Reporte]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{titulo}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fondo" class="java.lang.String" evaluationTime="Early">
+		<parameterDescription><![CDATA[Fondo Seleccionado]]></parameterDescription>
+	</parameter>
+	<parameter name="fecha" class="java.lang.String" evaluationTime="Late">
+		<parameterDescription><![CDATA[fcha tomada]]></parameterDescription>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[select * from tmp_xml]]>
+	</queryString>
+	<field name="column_esma" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="column_esma"/>
+		<property name="com.jaspersoft.studio.field.label" value="column_esma"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tmp_xml"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigo_fondo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="codigo_fondo"/>
+		<property name="com.jaspersoft.studio.field.label" value="codigo_fondo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tmp_xml"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="72" splitType="Stretch">
+			<textField textAdjust="ScaleFont">
+				<reportElement x="40" y="20" width="419" height="30" uuid="7f6466ae-ca6d-474a-8202-1b03a6b76765"/>
+				<textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="650" y="42" width="100" height="30" uuid="2d74a167-741b-464b-807c-e2861bd4fa0b"/>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="680" y="10" width="100" height="30" uuid="49787edd-da19-4770-a37a-9db691c08321"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="0" width="172" height="30" uuid="b66e4d2a-7fc9-4bd1-a09d-be4920df7340"/>
+				<textFieldExpression><![CDATA[$P{fondo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="9" width="76" height="20" uuid="503d4182-8f01-4e42-a2f5-80d3b432bfbd"/>
+				<text><![CDATA[AUTL2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="9" width="76" height="20" uuid="827d2991-c272-48b8-a102-bf0a8c47ce8f"/>
+				<text><![CDATA[AUTL3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="9" width="76" height="20" uuid="7fd06bed-1fd0-4231-8b8e-4611e78c2f7e"/>
+				<text><![CDATA[AUTL4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="9" width="76" height="20" uuid="b2a3a792-2216-498a-ba2d-6e14fd84f3d1"/>
+				<text><![CDATA[AUTL5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="9" width="76" height="20" uuid="c341d234-b366-4d0e-8ece-aedcb84f7166"/>
+				<text><![CDATA[AUTL6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="720" y="10" width="76" height="20" uuid="9dcef817-6502-4aa9-ab8f-049edb36f031"/>
+				<text><![CDATA[AUTL..n]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="628" y="9" width="76" height="20" uuid="f1e44a07-2ee8-46e9-a02b-5b704c3ad8ae"/>
+				<text><![CDATA[AUTL10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="9" width="76" height="20" uuid="35f2b5be-77c6-4f51-b7cf-286dc326b2b7"/>
+				<text><![CDATA[AUTL8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="549" y="9" width="76" height="20" uuid="35ba602f-65e7-4b54-818f-9f84b3244db2"/>
+				<text><![CDATA[AUTL9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="391" y="9" width="76" height="20" uuid="01baf587-456e-4691-afc4-fcfdf4507303"/>
+				<text><![CDATA[AUTL7]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="55">
+			<textField>
+				<reportElement x="0" y="10" width="100" height="30" uuid="590fb441-306e-4424-afa4-e756a6b5c863">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="26a9f615-16d3-448a-8632-1e38a05c153f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{column_esma}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="10" width="100" height="30" uuid="5017bad4-957b-48f8-9141-caa10aa0bb1e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="985ff928-8592-44d0-b1b9-65c78a59a0e9"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{codigo_fondo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="62" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
