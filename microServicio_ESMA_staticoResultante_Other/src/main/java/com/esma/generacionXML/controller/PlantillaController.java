@@ -61,14 +61,20 @@ public class PlantillaController {
 	
 	//@RequestMapping
 	@RequestMapping (value="plantillas/",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE) 
-	public List<Plantilla_esma> busquedaPlantilla(@RequestParam(required=false) String fondo,@RequestParam(required=false) String plantilla_esma){
+	public List<Plantilla_esma> busquedaPlantilla(@RequestParam(required=false) String fondo,@RequestParam(required=false) String plantilla_esma,@RequestParam(required=false) String mfechaI,@RequestParam(required=false) String mfechaF){
+		SimpleDateFormat fechaFormato=new SimpleDateFormat("yyyy-MM-dd");
 		System.out.println("Este es el parametro del Front --> "+fondo);
 		
 		System.out.println("Este es el parametro tipo Plantillat --> "+plantilla_esma);
-		SimpleDateFormat fechaFormato=new SimpleDateFormat("yyyy-MM-dd");
+		
+		System.out.println("Este es el parametro fechaInicial del front en el Controller --> "+mfechaI);
+		
+		System.out.println("Este es el parametro fechaFin del front en el Controller --> "+mfechaF);
+		
+		//SimpleDateFormat fechaFormato=new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			sPlantilla.exportacionesReportes(fondo);
-			return sPlantilla.buscarPorfondos(fondo, plantilla_esma);
+			return sPlantilla.buscarPorfondos(fondo, plantilla_esma,mfechaI,mfechaF);
 			//return new ResponseEntity<>(sPlantilla.buscarPorfondos(fondo, tplantilla),HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();

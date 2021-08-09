@@ -17,7 +17,7 @@ public interface PlantillaService {
 	
 	public String exportacionesReportes(String reportFormato /*, Plantilla_esma plantilla*/) throws FileNotFoundException, JRException;
 
-	List<Plantilla_esma> buscarPorfondos(String fondo, String cod_plantilla);
+	List<Plantilla_esma> buscarPorfondos(String fondo, String cod_plantilla,String fechai, String fechaf);
 	
 //	//otros Metodos que venian del DAO
 //	List<Plantilla_esma> buscarPorfondo(String fondo, String cod_plantilla, Date fechaI, Date fechaF);

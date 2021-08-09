@@ -42,6 +42,7 @@ import net.sf.jasperreports.export.SimpleWriterExporterOutput;
 @Service
 public class PlantillaServiceImpl implements PlantillaService {
 
+	//PUEDIERA UTILIZAR una gtbl maestra con lso fondo vs los reportes aosciados
 	@Value("${pathSalida}")
 	String pathSalida;
 	
@@ -51,6 +52,15 @@ public class PlantillaServiceImpl implements PlantillaService {
 	@Value("${plantBase6}")
 	String plantBase6;
 	
+	@Value("${plantBase2}")
+	String plantBase2;
+	
+	@Value("${plantBase12}")
+	String plantBase12;
+	
+	@Value("${plantBase14}")
+	String plantBase14;
+	
 	File reporteCreado=null;
 	String pTitulo=null;
 	
@@ -59,7 +69,10 @@ public class PlantillaServiceImpl implements PlantillaService {
 	
 
 	@Override
-	public List<Plantilla_esma> buscarPorfondos(String fondo, String cod_plantilla) {
+	public List<Plantilla_esma> buscarPorfondos(String fondo, String cod_plantilla, String fechai, String fechaf) {
+		
+		System.out.println("Desde Service Fecha Incial del Front en Angular --> "+fechai);
+		System.out.println("Desde Service Fecha Final del Front en Angular --> "+fechaf);
 		Predicate<Plantilla_esma> ffondo=ffon->ffon.getCod_fondo().equalsIgnoreCase(fondo);
 		Predicate<Plantilla_esma> ffesma=ffes->ffes.getPlantilla_esma().equalsIgnoreCase(cod_plantilla);
 	
@@ -87,12 +100,6 @@ public class PlantillaServiceImpl implements PlantillaService {
 		//parametro Recibido
 		String splantilla=fondo;
 		
-	
-		//Aqui le pasaremos los parametros de filtrado de la peticion
-		//File reporteCreado = null;
-		
-		//File reportado=ResourceUtils.getFile("classpath:Plantilla5_FondoCoches.jrxml");
-		
 		//Leemos  nuestro Reporte //Cambiamos el tipo de psaramtros
 		if (fondo.equalsIgnoreCase("AUT")) {
 			pTitulo="Fondo de Coches Plantillas tipo Esma 5";
@@ -103,6 +110,24 @@ public class PlantillaServiceImpl implements PlantillaService {
 		if (fondo.equalsIgnoreCase("CRM")) { 
 			pTitulo="Fondo de Consumo Plantillas tipo Esma 6";
 			reporteCreado=ResourceUtils.getFile(plantBase6);
+			System.out.println("Lugar del plantilla --> "+reporteCreado);
+		}
+		
+		if (fondo.equalsIgnoreCase("IVSS")) { 
+			pTitulo="Pasivos Plantillas tipo Esma 12";
+			reporteCreado=ResourceUtils.getFile(plantBase12);
+			System.out.println("Lugar del plantilla --> "+reporteCreado);
+		}
+		
+		if (fondo.equalsIgnoreCase("SESS")) { 
+			pTitulo="Hechos Relevantes Plantillas tipo Esma 14";
+			reporteCreado=ResourceUtils.getFile(plantBase14);
+			System.out.println("Lugar del plantilla --> "+reporteCreado);
+		}
+		
+		if (fondo.equalsIgnoreCase("ACR")) { 
+			pTitulo="Fondo de Activos Hipotecarios Plantillas tipo Esma 2";
+			reporteCreado=ResourceUtils.getFile(plantBase2);
 			System.out.println("Lugar del plantilla --> "+reporteCreado);
 		}
 		
@@ -121,7 +146,8 @@ public class PlantillaServiceImpl implements PlantillaService {
 		
 		//parametros recibido desde la petcion, de ser necesario un +
 		JasperExportManager.exportReportToHtmlFile(jasperPrintS, pathSalida+"\\reportePlantilla.html");
-		
+		JasperExportManager.exportReportToXmlFile(jasperPrintS, pathSalida+"\\reportePlantilla.xml", false); //sin Cabcera
+	/*	
 		if (fondo.equalsIgnoreCase("html")) {
 			JasperExportManager.exportReportToHtmlFile(jasperPrintS, pathSalida+"\\reportePlantill6.html");
 			//(pathSalida+"\\reportePlantilla6");
@@ -142,7 +168,7 @@ public class PlantillaServiceImpl implements PlantillaService {
 			 exporterCSV.setConfiguration(configuration);
 			//JasperExportManager.exportReportToHtmlFile(jasperPrintS, pathSalida+"\\reportePalntill6.csv");
 			}
-		
+		*/
 		System.out.println("Hemos generado desde El Front de Angular con el ttulo del reporte Correspondiente--> " +pTitulo);
 		return "El Reprte se ha Generado en la Siguiente Ruta --> "+pathSalida;
 		
